@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moodmelt — Made to Melt Your Mood</title>
+  <meta name="description" content="Premium artisan brownies delivered fresh across Pakistan."/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <style>
+    #root { min-height: 100vh; }
+    #toast-container {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none;
+    }
+    .toast {
+      background: var(--choc); color: var(--cream); padding: 12px 24px;
+      border-radius: var(--r-full); font-family: var(--font-body); font-size: 0.85rem;
+      font-weight: 500; box-shadow: var(--sh-md); animation: toastIn 0.3s ease; white-space: nowrap;
+    }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .page-transition-out { animation: fadeOut 0.2s ease forwards; }
+    @keyframes fadeOut { to { opacity: 0; } }
+    .wa-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 3000; align-items: center; justify-content: center; }
+    .wa-lightbox.open { display: flex; }
+    .wa-lb-inner { position: relative; max-width: 90vw; max-height: 90vh; }
+    .wa-lb-inner img { max-width: 90vw; max-height: 85vh; border-radius: 12px; object-fit: contain; transition: transform 0.3s ease; }
+    .wa-lightbox-close { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; background: white; border-radius: 50%; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1; }
+    .wa-lb-counter { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: rgba(255,255,255,0.8); white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/babel" src="/js/app.jsx" data-type="module"></script>
+</body>
+</html>
